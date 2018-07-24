@@ -1,0 +1,50 @@
+<meta name="name" content="content" charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<pre>
+	// 接下来我们来研究一下，如何判断数组的类型呢
+	// 首先我们最容易想到就是   typeof
+	console.log(typeof []);//'object',说明这种判断方法不理想啊
+
+	// 还有一种方式就是判断一个对象是不是
+	// 另一个对象的实例 instanceof
+	console.log([] instanceof Array);//true
+
+	// 当然我们也可以判断 一个对象的构造函数是不是 数组
+	console.log([].constructor === Array);//true
+
+	// 当然到了ES5呢出现了一个静态方法
+	// 就是Array.isArray()
+	console.log(Array.isArray([]));//true
+
+	// 也有一种最原始的判断方式，也是最准确的判断方式
+	// 任何对象都有一个   toString()方法
+	console.log(Object.prototype.toString());//[object Object]
+	console.log(Object.prototype.toString.call([]));//[object Array]
+	// 所以我们就可以利用打印出来的字符串，来判断是不是 [object Array]
+	
+	// 我们来看看underscore.js是怎么来判断的
+	// Is a given value an array?
+	// Delegates to ECMA5's native Array.isArray
+	/*
+		var nativeIsArray = Array.isArray;
+		_.isArray = nativeIsArray || function(obj) {
+	 	  return toString.call(obj) === '[object Array]';
+	 	};	
+	 */
+	
+
+	// 接下来就是我们来模拟一下
+	function isArray(obj){
+		// 当然我们可以把大段代码
+		// 先存起来
+		var nativeIsArray = Array.isArray;
+		var toString = Object.prototype.toString;
+		return nativeIsArray(obj) ||toString.call(obj) === '[object Array]';
+	}
+
+	// 我们来尝试一下
+	console.log(isArray([]));//true
+	console.log(isArray([1,2,4,5]));//true
+	console.log(isArray(new Array()));//true
+	
+</pre>
