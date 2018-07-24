@@ -1,5 +1,56 @@
 <meta name="name" content="content" charset="utf-8">
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <script type="text/javascript">
+	//为什么要讲，因为他很重要啊
+	//在那个underscore.js中有一段这样的代码
+	//现在我们来看看他的这段代码
+	/**
+	 * // Create a safe reference to the Underscore object for use below.
+	  var _ = function(obj) {
+	    if (obj instanceof _) return obj;
+	    if (!(this instanceof _)) return new _(obj);
+	    this._wrapped = obj;
+	  };
+	 */
+	// 1 _其实是一个构造函数
+	// obj传进去的参数
+	// 首先判断obj是不是 _ 构造函数的实例化对象
+	// 如果不是，就给他包装一下
+	// 那为什么会有不是他的实例化对象呢，其实是这样就是如果用户在调用这个构造函数时
+	// 没有执行new操作的话，就直接当成不同函数调用了
+	function Person(name){
+		this.name = name;
+		// console.log(this)
+		return this;
+	}
+
+	// 通常实例化对象
+	var p = new Person('Ken');
+	console.log(p.name);//ken
+	// 打印出来的对象是指向Person这个构造函数的
+
+	// 那如果不给他new操作的话
+	var n_p = Person('Ken');
+	console.log(n_p.name);//'Ken'
+	// 打印出来的this对象是指向window
 	
+
+	// 所以接下来我们就来实现以下
+	var isInstanceOf = function(Instance,Constructor){
+		if(!(Instance instanceof Constructor)){
+
+			return new Constructor(Instance);
+		}else{
+			return Instance;
+		}
+	}
+
+
+	var obj = isInstanceOf(new Person("Ken"), Person);
+	console.log(obj);
+	console.log(obj instanceof Person);//true
+
+
+	var obj2 = isInstanceOf(Person('Ken'),Person);
+	console.log(obj2 instanceof Person);//true	
 </script>
