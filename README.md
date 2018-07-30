@@ -1,6 +1,9 @@
 # underrscore.js-
 underrscore.js学习系列
 
+强烈建议学习javascript的网站就是MDN  
+https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
 
 第一讲  root对象的学习    
 https://github.com/KenNaNa/underrscore.js-/blob/master/1-underscore%E7%9A%84root%E5%AF%B9%E8%B1%A1%E8%A7%A3%E8%AF%BB.html
