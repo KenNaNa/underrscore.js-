@@ -60,3 +60,6 @@ https://github.com/KenNaNa/underrscore.js-/blob/master/19-underscore.js_inherits
 
 第十八讲 NaN类型判断
 https://github.com/KenNaNa/underrscore.js-/blob/master/12-underscore.js_isNaN.html
+
+第十九讲 javascript原型
+https://www.jb51.net/article/126484.htm
