@@ -3,7 +3,7 @@ underrscore.js学习系列
 # 打造自己的 javascript  工具库
 https://blog.csdn.net/liangrongliu1991/article/details/78909472
 
-强烈建议学习javascript的网站就是MDN  
+# 强烈建议学习javascript的网站就是MDN  
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 
 
