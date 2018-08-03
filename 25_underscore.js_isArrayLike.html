@@ -54,7 +54,7 @@
 	// 我们自己来实现以下
 	var isArrayLike = function(collection){
 		var length = getLength(collection);
-		return (!("slice" in collection) && !("split" in collection)) && typeof length === 'number' && length>=0 && length<=MAX_ARRAY_INDEX;
+		return (!(Array.prototype.alice in collection) && !(Array.prototype.split in collection)) && typeof length === 'number' && length>=0 && length<=MAX_ARRAY_INDEX;
 	}
 	var oPs = document.querySelectorAll("p")
 	console.log(isArrayLike(o));//true
